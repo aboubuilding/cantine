@@ -35,7 +35,7 @@ class Produit extends Model
         'unite_stock',
         'unite_achat',
         'equivalence',
-        'type_produit',
+
 
 
 
@@ -58,7 +58,6 @@ class Produit extends Model
      * @param  int $unite_stock
      * @param  int $unite_achat
      * @param  int $equivalence
-     * @param  int $type_produit
 
 
 
@@ -74,8 +73,8 @@ class Produit extends Model
         $photo,
         $unite_stock,
         $unite_achat,
-        $equivalence,
-        $type_produit
+        $equivalence
+
 
 
     )
@@ -91,7 +90,7 @@ class Produit extends Model
         $produit->unite_stock = $unite_stock;
         $produit->unite_achat = $unite_achat;
         $produit->equivalence = $equivalence;
-        $produit->type_produit = $type_produit;
+
 
         $produit->created_at = Carbon::now();
 
@@ -124,7 +123,6 @@ class Produit extends Model
      * @param  int $unite_stock
      * @param  int $unite_achat
      * @param  int $equivalence
-     * @param  int $type_produit
 
 
 
@@ -141,7 +139,7 @@ class Produit extends Model
         $unite_stock,
         $unite_achat,
         $equivalence,
-        $type_produit,
+
 
         $id)
     {
@@ -159,7 +157,7 @@ class Produit extends Model
             'unite_stock' => $unite_stock,
             'unite_achat' => $unite_achat,
             'equivalence' => $equivalence,
-            'type_produit' => $type_produit,
+
 
 
 
@@ -199,7 +197,7 @@ class Produit extends Model
      * Retourne la liste des Produits
 
 
-     * @param  int $type_produit
+
 
 
 
@@ -210,7 +208,7 @@ class Produit extends Model
 
     public static function getListe(
 
-        $type_produit = null,
+
 
 
 
@@ -221,10 +219,6 @@ class Produit extends Model
         $query =  Produit::where('etat', '!=', TypeStatus::SUPPRIME)
         ;
 
-        if ($type_produit != null) {
-
-            $query->where('type_produit', '=', $type_produit);
-        }
 
 
 
@@ -241,7 +235,7 @@ class Produit extends Model
 
 
 
-     * @param  int $type_produit
+
 
 
 
@@ -251,7 +245,6 @@ class Produit extends Model
 
     public static function getTotal(
 
-        $type_produit = null
 
 
 
@@ -264,15 +257,6 @@ class Produit extends Model
 
 
             ->where('produits.etat', '!=', TypeStatus::SUPPRIME);
-
-
-            if ($type_produit != null) {
-
-                $query->where('type_produit', '=', $type_produit);
-            }
-
-
-
 
 
 

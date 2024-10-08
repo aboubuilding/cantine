@@ -13,21 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('achats', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->date('date_menu')->nullable();
+            $table->string('nom_plat')->nullable();
+            $table->text('description')->nullable();
 
-            $table->date('date_achat')->nullable();
-            $table->string('reference')->nullable();
-            $table->float('quantite')->nullable();
-            $table->float('prix_unitaire')->nullable();
-            $table->float('montant')->nullable();
-            $table->bigInteger('produit_id')->nullable();
-            $table->bigInteger('fournisseur_id')->nullable();
              $table->bigInteger('annee_id')->nullable();
-        
 
             $table->integer('etat')->default(1);
-
             $table->timestamps();
         });
     }
@@ -39,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('achats');
+        Schema::dropIfExists('menus');
     }
 };

@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('libelle')->nullable();
             $table->string('responsable')->nullable();
             $table->mediumText('description')->nullable();
-            $table->tinyInteger('type_magasin')->nullable();
-
+           
 
             $table->integer('etat')->default(1);
 

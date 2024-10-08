@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fournisseurs', function (Blueprint $table) {
+        Schema::create('livreurs', function (Blueprint $table) {
             $table->id();
 
-            $table->string('raison_social')->nullable();
-            $table->string('nom_contact')->nullable();
+            $table->string('nom')->nullable();
+            
             $table->string('telephone_contact')->nullable();
             $table->mediumText('adresse')->nullable();
 
             $table->integer('etat')->default(1);
-
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fournisseurs');
+        Schema::dropIfExists('livreurs');
     }
 };

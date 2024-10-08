@@ -34,6 +34,9 @@ class Mouvement extends Model
         'annee_id',
         'quantite',
         'type_mouvement',
+        'menu_id',
+        'montant',
+
 
 
 

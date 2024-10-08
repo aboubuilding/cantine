@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('reference')->nullable();
             $table->bigInteger('produit_id')->nullable();
             $table->bigInteger('magasin_id')->nullable();
-
             $table->bigInteger('annee_id')->nullable();
             $table->float('quantite')->nullable();
+
             $table->tinyInteger('type_mouvement')->nullable();
+            $table->bigInteger('menu_id')->nullable();
+            $table->float('montant')->nullable();
 
             $table->integer('etat')->default(1);
             $table->timestamps();
